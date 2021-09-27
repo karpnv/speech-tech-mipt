@@ -4,10 +4,10 @@
 
 ## Домашнее задание 1, срок 23.09.2021
 
-Разработать навык для голосового ассистента Салют: https://developers.sber.ru/
+Разработать навык для голосового ассистента Салют (SmartMarket): https://developers.sber.ru/
 
-# Дополнительный материал для изучения 
+### Дополнительный материал для изучения 
 
-http://web.stanford.edu/class/cs224s/
+[CS224S: Spoken Language Processing](http://web.stanford.edu/class/cs224s/)
 
-https://developers.sber.ru/docs/
+[Документация SmartMarket](https://developers.sber.ru/docs/)
