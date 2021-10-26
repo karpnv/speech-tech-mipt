@@ -1,0 +1,1 @@
+Create directory /speech-tech-mipt/week06/hw/
