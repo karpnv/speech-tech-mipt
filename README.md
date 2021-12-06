@@ -12,7 +12,7 @@
 
 ## Домашнее задание 3, срок 13.12.2021
 
-Обучить модель на псевдолейблах: https://colab.research.google.com/drive/1H9buH1z88DbyKPkOL02K9tnUgMccKUU5?usp=sharing#scrollTo=f1FwrOLe5rgw 
+Обучить модель на псевдолейблах: https://colab.research.google.com/drive/1VpjbH3U7ynh9RHXOFvYtkAZNULZa9bBE
 
 ## Домашнее задание 4, срок 13.12.2021
 
