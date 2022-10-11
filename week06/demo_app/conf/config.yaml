@@ -3,7 +3,7 @@ inference:
   avg_window_size: 5
   window_size_seconds: 1
   window_shift_seconds: 0.1
-  threshold: 0.4
+  threshold: 0.7
 sample_rate: 16000
 val_fraction: 0.1
 idx_to_keyword:
