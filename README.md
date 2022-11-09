@@ -1,32 +1,24 @@
 # speech-tech-mipt
 
-Курс по речевым технологиям 
+Курс по речевым технологиям
 
-## Домашнее задание 1, срок 
-
-Разработать навык для голосового ассистента Салют (SmartMarket): https://developers.sber.ru/
-
-## Домашнее задание 2, срок 
-
-Обучить модель поиска ключевого слова: https://github.com/karpnv/speech-tech-mipt/blob/main/week06/spotter.ipynb 
-
-## Домашнее задание 3, срок 
-
-Обучить модель на псевдолейблах: https://colab.research.google.com/drive/1VpjbH3U7ynh9RHXOFvYtkAZNULZa9bBE
-
-## Домашнее задание 4, срок 
-
-Реализовать Griffin-Lim алгоритм: https://github.com/karpnv/speech-tech-mipt/blob/main/week13/griffinlim.ipynb
-
+## Программа курса
+1. [Обзор задач речевых технологий](./week01/)
+2. [Введение в диалоговые системы](./week02/)
+3. [Введение в акустику, физика процесса формирования речи](./week03/)
+4. [Основы цифровой обработки сигналов](./week04/)
+5. [Log-Mel Spectrogram, детекция ключевого слова](./week05/)
+6. [Детекция ключевого слова: каскадные системы, дистилляция](./week06/)
+7. [Распознавание речи: СTC-loss, Beam-Search](./week07/)
+8. [Распознавание речи: LAS, RNN-T, Streaming ASR](./week08/)
+9. [Распознавание речи: wav2vec, system combination](./week09/)
+10. [Распознавание речи: semi-supervised, псевдолейблы](./week10/)
+11. [Voice Activity Detection, диаризация](./week11/)
+12. [Синтез речи: постановка задачи, метрики качества](./week12/)
+13. [Синтез речи: авторегрессивные акустические модели](./week13/)
+14. [Синтез речи: неавторегрессивные модели](./week14/)
 
 ### Дополнительный материал для изучения 
 
-[CS224S: Spoken Language Processing](http://web.stanford.edu/class/cs224s/)
-
-[Документация SmartMarket](https://developers.sber.ru/docs/)
-
-### Оценки 
-Имя \ Д.З. | #1 | #2 | #4 | Итог | 
---- | --- | --- | --- | --- |
-
-
+* [CS224S: Spoken Language Processing](http://web.stanford.edu/class/cs224s/)
+* [Документация SmartMarket](https://developers.sber.ru/docs/)
