@@ -54,13 +54,13 @@ class TransformerDecoder(nn.Module):
         encoded: torch.Tensor,
         encoded_pad_mask: torch.Tensor,
         target: torch.Tensor,
-        target_mask: torch.Tensor,
+        target_attention_mask: torch.Tensor,
         target_pad_mask: torch.Tensor,
     ):
         emb = self.pos_embedding(self.embedding(target))
         out = emb
         for layer in self.layers:
             out = layer(
-                out, encoded, target_mask, None, target_pad_mask, encoded_pad_mask
+                out, encoded, target_attention_mask, None, target_pad_mask, encoded_pad_mask
             )
         return self.out(out)

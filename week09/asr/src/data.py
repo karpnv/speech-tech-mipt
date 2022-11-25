@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import List
 
 import torch
 import torchaudio
@@ -6,6 +7,19 @@ import sentencepiece
 import pandas as pd
 
 from src.transforms import get_transform
+
+
+class TokenToIdEncoder:
+    def __init__(self, labels: List[str]):
+        self.token_to_idx = {token: idx for idx, token in enumerate(labels)}
+        self.unk_token_id = len(self.token_to_idx)
+
+    @staticmethod
+    def from_model_config(conf):
+        return TokenToIdEncoder(conf.labels)
+
+    def encode(self, token: str) -> int:
+        return self.token_to_idx.get(token, self.unk_token_id)
 
 
 class ASRDataset(torch.utils.data.Dataset):
@@ -22,10 +36,10 @@ class ASRDataset(torch.utils.data.Dataset):
             manifest_path.parent / wav_path for wav_path in manifest.audio_filepath
         ]
 
-        token_to_idx = {token: idx for idx, token in enumerate(conf.labels)}
+        self.token_to_id_encoder = TokenToIdEncoder(conf.labels)
 
         self.targets = [
-            [token_to_idx[token] for token in text] for text in manifest.text
+            [self.token_to_id_encoder.encode(token) for token in text] for text in manifest.text
         ]
 
     def __len__(self):
@@ -83,7 +97,6 @@ class ASRDatasetBPE(torch.utils.data.Dataset):
 
 
 def collate_fn(batch):
-
     features, features_length, targets, targets_length = list(zip(*batch))
     features_padded = torch.nn.utils.rnn.pad_sequence(
         features, batch_first=True
