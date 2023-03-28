@@ -57,19 +57,22 @@ class QuartzNetCTC(pl.LightningModule):
         log = {"train_loss": loss, "lr": self.optimizers().param_groups[0]["lr"]}
 
         if (batch_nb + 1) % self.log_every_n_steps == 0:
+            with torch.no_grad():
+                self.eval()
+                refs = self.decoder.decode(token_ids=targets, token_ids_length=target_len)
+                hyps = self.decoder.decode(
+                    token_ids=preds, token_ids_length=encoded_len, unique_consecutive=True
+                )
+                self.train()
 
-            refs = self.decoder.decode(token_ids=targets, token_ids_length=target_len)
-            hyps = self.decoder.decode(
-                token_ids=preds, token_ids_length=encoded_len, unique_consecutive=True
-            )
-            logger.info("reference : %s", refs[0])
-            logger.info("prediction: %s", hyps[0])
-            self.wer.update(references=refs, hypotheses=hyps)
-            wer, _, _ = self.wer.compute()
+                logger.info("reference : %s", refs[0])
+                logger.info("prediction: %s", hyps[0])
+                self.wer.update(references=refs, hypotheses=hyps)
+                wer, _, _ = self.wer.compute()
 
-            self.wer.reset()
+                self.wer.reset()
 
-            log["train_wer"] = wer
+                log["train_wer"] = wer
 
         self.log_dict(log)
 

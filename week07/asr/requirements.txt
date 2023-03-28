@@ -1,5 +1,5 @@
 pytorch-lightning==1.5.9
-hydra-core=1.1.1
+hydra-core==1.1.1
 editdistance
 torchaudio
 torch
